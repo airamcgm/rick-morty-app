@@ -1,12 +1,12 @@
 import React from 'react';
-import GridList from '../../components/GridList';
+import CharacterList from '../../components/CharacterList';
 
 import './styles.scss';
 
 const HomePage = () => {
     return(
         <div className="app_container_full">
-            <GridList/>    
+            <CharacterList/>    
         </div>
     )
 }
