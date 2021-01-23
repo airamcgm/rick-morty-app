@@ -1,1 +1,7 @@
 @import "../../scss/main.scss";
+
+.app_grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1rem;
+}

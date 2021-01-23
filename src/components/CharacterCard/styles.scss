@@ -1,0 +1,26 @@
+   
+  .card {
+    margin: 1rem 0!important;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    border-radius: 5px;
+    display: flex;
+    width: 100%;
+    &:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+    .column {
+        flex-direction: column;
+        margin-left: 1rem;
+        flex: 1;
+    }
+    .image {
+        flex: 1;
+        border-radius: 5px 0px 0px 5px;
+        .img {
+            display: block;
+            padding: 5px;
+          }
+    }
+  }

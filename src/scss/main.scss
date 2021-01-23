@@ -4,7 +4,8 @@
 @import "_breakpoints";
 @import "_mixins";
 
-@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,500,700,900|Montserrat:300,400,500,600,700");
+@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,500,700,900");
+@import url('https://fonts.googleapis.com/css2?family=Barriecito&display=swap');
 
 .font_lato{
   font-family: "Lato", sans-serif;
@@ -12,6 +13,19 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.font_barriecito{
+  font-family: 'Barriecito', cursive;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.title{
+  font-size: 25px;
+  margin:1rem 0;
+}
+
 
 .app_container {
   width: 80%;

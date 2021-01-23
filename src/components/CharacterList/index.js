@@ -1,4 +1,6 @@
-import React, { useEffect }from 'react';
+import React, { useEffect } from 'react';
+
+import CharacterCard from '../CharacterCard';
 
 import { characterEntries } from '../../redux/CharacterList/selectors';
 import { nextUrl } from '../../redux/CharacterList/selectors';
@@ -18,10 +20,10 @@ const CharacterList = ({ characterListState, fetchCharacterList, nextUrlState })
     const nextUrl = nextUrlState;
 
     return (
-        <div className="app_container" >
-        {console.log(characterList)}
-        {console.log(nextUrl)}
-            Grid component works!
+        <div className="app_container app_grid" >
+            {characterList.map((tile, id) => (
+                <CharacterCard character={tile} key={id}/>
+            ))}
         </div>
     );
 }
