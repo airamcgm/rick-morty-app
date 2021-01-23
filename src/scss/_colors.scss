@@ -1,0 +1,33 @@
+$aquaBlue:#01F7B6;
+$black: #000;
+$blue:#0764E3;
+$green: #7ED321;
+$lightGray: #F6F4F3;
+$lightBlue: #E8F0FC;
+$gray: #E0DEDD;
+$darkGray: #363636;
+$mediumGray: #595959;
+$regentGray: #8d9aa8;
+
+
+$colors: (
+  "aquaBlue": $aquaBlue,
+  "black": $black,
+  "blue": $blue,
+  "green": $green,
+  "lightGray":$lightGray,
+  "lightBlue":$lightBlue,
+  "gray":$gray,
+  "darkGray":$darkGray,
+  "mediumGray": $mediumGray,
+  "regentGray": $regentGray,
+);
+
+@each $color, $value in $colors {
+  .korriban_color_#{$color} {
+    color: $value;
+  }
+  .korriban_background_#{$color} {
+    background: $value;
+  }
+}

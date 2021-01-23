@@ -1,12 +1,21 @@
-import React from 'react';
 import './App.scss';
+import { BrowserRouter as Router } from "react-router-dom";
+import Pages from "./pages";
+import { Provider } from "react-redux";
+import createStore from "./redux";
 
-function App(){
-    return(
-        <div className = 'app'>
-            <h1>Hola React 1</h1>
-        </div>
-    )
+export const store = createStore();
+
+function App() {
+  return (
+    <div>
+      <Provider store={store}>
+        <Router>
+          <Pages />
+        </Router>
+      </Provider>
+    </div>
+  );
 }
 
 export default App;

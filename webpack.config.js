@@ -2,6 +2,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     entry: './src/index.js',
@@ -21,8 +22,8 @@ module.exports = {
                 },
             },
             {
-                test: /\.(css|scss)$/,
-                use: ['style-loader', 'css-loader'],
+                test: /\.s[ac]ss$/i,
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
         ],
     },
@@ -30,6 +31,9 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: './public/index.html',
+        }),
+        new webpack.ProvidePlugin({
+            "React": "react",
         }),
     ]
 };
