@@ -3,8 +3,8 @@ import { FETCH_CHARACTER_LIST } from "./actionTypes";
 import { setCharacterList} from "./actions";
 import API from "../../services/api";
 
-export function* fetchCharacterList() {
-  const response = yield call(API.fetchCharacters);
+export function* fetchCharacterList(action) {
+  const response = yield call(API.fetchCharacters, action.page );
   yield put(setCharacterList(response));
 }
 
