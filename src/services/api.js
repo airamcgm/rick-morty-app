@@ -1,5 +1,10 @@
 const BASE_URL = 'https://rickandmortyapi.com/api';
-
+function handleErrors(response) {
+  if (!response.ok) {
+      throw Error(response.statusText);
+  }
+  return response;
+}
 class HttpClient {
   static get(url, data) {
     return HttpClient._generateRequest("GET", url, data);
@@ -12,7 +17,7 @@ class HttpClient {
   static _generateUrl(path) {
     return `${BASE_URL}${path}`;
   }
-
+  
   static _generateRequest(method, url, data = {}) {
     /*const headers = {
       "Cockpit-Token": API_TOKEN,
@@ -22,7 +27,7 @@ class HttpClient {
     const payload = { ...data, method: method};
     const serviceUrl = this._generateUrl(url);
 
-    return fetch(serviceUrl, payload).then((response) => response.json());
+    return fetch(serviceUrl, payload).then(handleErrors).then((response) => response.json()).catch(error => console.log(error) );
   }
 }
 

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
 import CharacterCard from '../CharacterCard';
-import Searcher from '../Searcher';
 
 import { characterEntries } from '../../redux/CharacterList/selectors';
 import { nextUrl, prevUrl } from '../../redux/CharacterList/selectors';
@@ -14,9 +13,10 @@ import "./styles.scss";
 
 const CharacterList = ({ characterListState, fetchCharacterList, nextUrlState, prevUrlState }) => {
     const characterList = characterListState;
+    const [inputValue, setInputValue] = React.useState("");
     const nextUrl = nextUrlState;
     const prevUrl = prevUrlState;
-
+ 
     useEffect(() => {
         fetchCharacterList();
     }, [fetchCharacterList]);
@@ -25,33 +25,43 @@ const CharacterList = ({ characterListState, fetchCharacterList, nextUrlState, p
         var nextUrlId = 0;
         if(page!=null){
             nextUrlId = page.substr(48,page.length);
-        } 
-        console.log(nextUrlId)
+        };
+        //console.log(nextUrlId)
         fetchCharacterList('page', nextUrlId);
     }
     const previousPage = (page) => {
         var prevUrlId = 0;
         if(page!=null){
             prevUrlId = page.substr(48,page.length);
-        } 
-        console.log(prevUrlId)
+            console.log(prevUrlId)
+        };        
         fetchCharacterList('page', prevUrlId);
     }
+
+    const search = () => {
+        fetchCharacterList('name', 'rick');
+    }
+
+    const onChangeHandler = event => {
+        setInputValue(event.target.value);
+        fetchCharacterList('name', inputValue);
+        {console.log(inputValue)}
+    };
 
     return (
         <div className="app_container" >
             <div className="actions_grid">
-                <button onClick={() => previousPage(prevUrl)}>Previous</button>
-                <div>
-                    <input></input>
-                    <button>buscar</button>
-                </div>
-                <button onClick={() => nextPage(nextUrl)}>Next</button>
+                <button id="prevButton" onClick={() => previousPage(prevUrl)}>Previous</button>
+                <input type="text" name="name" onChange={onChangeHandler} value={inputValue}></input>
+                <button id="nextButton" onClick={() => nextPage(nextUrl)}>Next</button>
             </div>
             <div className="app_grid">
-                {characterList.map((tile, id) => (
-                    <CharacterCard character={tile} key={id}/>
-                ))}
+            {(characterList!="") ? (
+                characterList.map((tile, id) => (
+                        <CharacterCard character={tile} key={id}/>
+                ))
+            ): <div>no hay coincidencias</div>}
+
             </div>
         </div>
     );
