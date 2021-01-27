@@ -4,7 +4,7 @@ import { FaHeartbeat } from 'react-icons/fa';
 import { GiHumanTarget } from 'react-icons/gi';
 import { RiAliensFill } from 'react-icons/ri';
 import { MdLocationCity } from 'react-icons/md';
-import { SiMicrogenetics } from 'react-icons/Si';
+import { SiMicrogenetics } from 'react-icons/si';
 import { TiLocation } from 'react-icons/ti';
 
 import "./styles.scss";
