@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import CharacterCard from '../CharacterCard';
+import Searcher from '../Searcher';
 
 import { characterEntries } from '../../redux/CharacterList/selectors';
 import { nextUrl, prevUrl } from '../../redux/CharacterList/selectors';
@@ -9,7 +10,6 @@ import { fetchCharacterList } from '../../redux/CharacterList/actions';
 import { connect } from 'react-redux';
 
 import "./styles.scss";
-
 
 
 const CharacterList = ({ characterListState, fetchCharacterList, nextUrlState, prevUrlState }) => {
@@ -39,12 +39,20 @@ const CharacterList = ({ characterListState, fetchCharacterList, nextUrlState, p
     }
 
     return (
-        <div className="app_container app_grid" >
-            {characterList.map((tile, id) => (
-                <CharacterCard character={tile} key={id}/>
-            ))}
-            <button onClick={() => previousPage(prevUrl)}>Previous</button>
-            <button onClick={() => nextPage(nextUrl)}>Next</button>
+        <div className="app_container" >
+            <div className="actions_grid">
+                <button onClick={() => previousPage(prevUrl)}>Previous</button>
+                <div>
+                    <input></input>
+                    <button>buscar</button>
+                </div>
+                <button onClick={() => nextPage(nextUrl)}>Next</button>
+            </div>
+            <div className="app_grid">
+                {characterList.map((tile, id) => (
+                    <CharacterCard character={tile} key={id}/>
+                ))}
+            </div>
         </div>
     );
 }

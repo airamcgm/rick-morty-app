@@ -1,0 +1,46 @@
+@import '../../scss/breakpoints.scss';
+@import '../../scss/colors.scss';
+
+// NavigationBar component styles
+
+.bg_nav{
+  background-color:black;
+  opacity: 0.75;
+}
+
+.app_navigation_bar {
+    height: 250px;
+    display: flex;
+    padding: 0em;
+    justify-content: space-between;
+  }
+  
+  .app_navigation_bar {
+    justify-self: flex-end;
+    position: relative;
+  }
+  
+  .app_navigation_bar{
+    display: flex;
+  }
+  
+  .app_navigation_bar{
+    font-weight: 600;
+    size:14px;
+    margin-right: auto;
+  }
+
+  .app_navigation_bar .app_logo {
+    margin-right: 0px; 
+  }
+  
+  
+  .app_navigation_bar .app_logo .app_logo_img{
+    width: 293px;
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  .app_logo_letras{
+      width: 500px;
+  }
