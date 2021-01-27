@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import CharacterCard from '../CharacterCard';
+import NotFound from '../NotFound';
 
 import { characterEntries } from '../../redux/CharacterList/selectors';
 import { nextUrl, prevUrl } from '../../redux/CharacterList/selectors';
@@ -68,15 +69,17 @@ const CharacterList = ({ characterListState, fetchCharacterList, nextUrlState, p
                 </div>
                 
             </div>
-            <div className="app_grid">
             {(characterList!="") ? (
-                characterList.map((tile, id) => (
-                        <CharacterCard character={tile} key={id}/>
-                ))
-            ): <div>no hay coincidencias</div>}
+                <div className="app_grid">
+
+                    {characterList.map((tile, id) => (
+                            <CharacterCard character={tile} key={id}/>
+                    ))}
+                </div>)
+
+            : <NotFound/>}
 
             </div>
-        </div>
     );
 }
 
