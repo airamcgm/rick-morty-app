@@ -27,7 +27,7 @@ const CharacterList = ({ characterListState, fetchCharacterList, nextUrlState, p
             nextUrlId = page.substr(48,page.length);
         } 
         console.log(nextUrlId)
-        fetchCharacterList(nextUrlId);
+        fetchCharacterList('page', nextUrlId);
     }
     const previousPage = (page) => {
         var prevUrlId = 0;
@@ -35,7 +35,7 @@ const CharacterList = ({ characterListState, fetchCharacterList, nextUrlState, p
             prevUrlId = page.substr(48,page.length);
         } 
         console.log(prevUrlId)
-        fetchCharacterList(prevUrlId);
+        fetchCharacterList('page', prevUrlId);
     }
 
     return (
@@ -64,7 +64,7 @@ const mapStateToProps = (state) => ({
 });
   
   const mapDispatchToProps = (dispatch) => ({
-    fetchCharacterList: (page) => dispatch(fetchCharacterList(page)),
+    fetchCharacterList: (parameter,page) => dispatch(fetchCharacterList(parameter, page)),
     //fetchMoreCharacters: ({page}) => dispatch(fetchCharacterList(page))
 
 });

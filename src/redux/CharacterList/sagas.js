@@ -4,7 +4,7 @@ import { setCharacterList} from "./actions";
 import API from "../../services/api";
 
 export function* fetchCharacterList(action) {
-  const response = yield call(API.fetchCharacters, action.page );
+  const response = yield call(API.fetchCharacters, action.parameter, action.page );
   yield put(setCharacterList(response));
 }
 

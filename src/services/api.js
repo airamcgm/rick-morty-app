@@ -26,7 +26,7 @@ class HttpClient {
   }
 }
 
-const fetchCharacters = (page) => HttpClient.get(`/character/?page=${page}`);
+const fetchCharacters = (parameter, page) => HttpClient.get(`/character/?${parameter}=${page}`);
 
 const Api = {
     fetchCharacters,
