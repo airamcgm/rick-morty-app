@@ -52,7 +52,7 @@
   .app_logo_letras{
       width: 500px;
       @include media-breakpoint-down-sm {
-        width: 350px;
+        width: 320px;
         margin-top: 20px;
       }
   }
