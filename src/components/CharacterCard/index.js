@@ -13,15 +13,17 @@ const CharacterCard = ({ character }) => {
 
     return (
         <div className="card font_lato">
-            <div className="column text">
+            <div className="header_card">
+                <img className="image" src={character.image} alt={character.name} width="200px"/>
                 <p className="font_barriecito title">{character.name}</p>
+            </div>
+            <div className="column text">
                 <p>{character.status=="Alive"? <FaHeartbeat className="app_color_red"/> : <FaHeartbeat className="app_color_dark_grey"/>}<span>{character.status}</span></p>
                 <p>{character.species=="Human"? <GiHumanTarget className="app_color_blue"/> : <RiAliensFill className="app_color_green"/>}<span>{character.species}</span></p>
                 {character.type!="" ? <p><SiMicrogenetics className="app_color_purple"/><span>{character.type}</span></p> : "" }
                 <p><MdLocationCity className="app_color_dark_grey"/><span>{character.origin.name}</span></p>
                 <p><TiLocation className="app_color_dark_grey"/><span>{character.location.name}</span></p>
             </div>
-            <img className="image" src={character.image} alt={character.name} width="200px"/>
         </div>
     );
 }

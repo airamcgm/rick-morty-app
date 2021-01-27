@@ -6,6 +6,11 @@ import { characterEntries } from '../../redux/CharacterList/selectors';
 import { nextUrl, prevUrl } from '../../redux/CharacterList/selectors';
 import { fetchCharacterList } from '../../redux/CharacterList/actions';
 
+import { ImSearch } from 'react-icons/im';
+import { MdClose } from 'react-icons/md';
+import { IoIosArrowBack } from 'react-icons/io';
+import { IoIosArrowForward } from 'react-icons/io';
+
 import { connect } from 'react-redux';
 
 import "./styles.scss";
@@ -26,34 +31,42 @@ const CharacterList = ({ characterListState, fetchCharacterList, nextUrlState, p
         if(page!=null){
             nextUrlId = page.substr(48,page.length);
         };
-        //console.log(nextUrlId)
         fetchCharacterList('page', nextUrlId);
     }
     const previousPage = (page) => {
         var prevUrlId = 0;
         if(page!=null){
             prevUrlId = page.substr(48,page.length);
-            console.log(prevUrlId)
         };        
         fetchCharacterList('page', prevUrlId);
     }
 
     const search = () => {
-        fetchCharacterList('name', 'rick');
+        fetchCharacterList('name', inputValue);
+        setInputValue('');
+    }
+    const clear = () => {
+        setInputValue('');
     }
 
     const onChangeHandler = event => {
         setInputValue(event.target.value);
-        fetchCharacterList('name', inputValue);
-        {console.log(inputValue)}
     };
 
     return (
         <div className="app_container" >
             <div className="actions_grid">
-                <button id="prevButton" onClick={() => previousPage(prevUrl)}>Previous</button>
-                <input type="text" name="name" onChange={onChangeHandler} value={inputValue}></input>
-                <button id="nextButton" onClick={() => nextPage(nextUrl)}>Next</button>
+                <div className='row_2'>
+                    <button id="prevButton" className="font_barriecito" onClick={() => previousPage(prevUrl)}><IoIosArrowBack className="arrow_back"/>Previous</button>
+                    <button id="nextButton" className="font_barriecito" onClick={() => nextPage(nextUrl)}>Next<IoIosArrowForward className="arrow_forward"/></button>
+                </div>
+                <div></div>
+                <div className="search_grid">
+                    <button className='button_search' onClick={() => search()}><ImSearch/></button>
+                    <input type="text" placeholder='Search...'  className='input_text' onChange={onChangeHandler} value={inputValue}></input>
+                    <button className='button_clear' onClick={() => clear()}><MdClose/></button>
+                </div>
+                
             </div>
             <div className="app_grid">
             {(characterList!="") ? (

@@ -4,8 +4,7 @@
 // NavigationBar component styles
 
 .bg_nav{
-  background-color:black;
-  opacity: 0.75;
+  background-color:$black;
 }
 
 .app_navigation_bar {
@@ -39,8 +38,21 @@
     width: 293px;
     margin-bottom: 15px;
     display: block;
+    @include media-breakpoint-down-sm {
+      display:none
+    }
+    @include media-breakpoint-down-md {
+      display:none
+    }
+    @include media-breakpoint-up-lg {
+        width: 293px;
+    }
   }
 
   .app_logo_letras{
       width: 500px;
+      @include media-breakpoint-down-sm {
+        width: 350px;
+        margin-top: 20px;
+      }
   }

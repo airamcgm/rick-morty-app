@@ -27,7 +27,7 @@ class HttpClient {
     const payload = { ...data, method: method};
     const serviceUrl = this._generateUrl(url);
 
-    return fetch(serviceUrl, payload).then(handleErrors).then((response) => response.json()).catch(error => console.log(error) );
+    return fetch(serviceUrl, payload).then(handleErrors).then((response) => response.json()).catch(error => console.log("") );
   }
 }
 

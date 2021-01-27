@@ -22,8 +22,12 @@
 }
 
 .title{
+  text-align: center;
+  color:white;
   font-size: 27px;
-  margin:1rem 0;
+  padding: 1rem 0;
+  position: relative;
+  bottom:50px;
 }
 
 
@@ -33,10 +37,10 @@
   margin-left: auto;
   margin-right: auto;
   @include media-breakpoint-up-sm {
-    //max-width: 720px;
+    max-width: 720px;
   }
   @include media-breakpoint-up-md {
-    //max-width: 960px;
+    max-width: 960px;
   }
   @include media-breakpoint-up-lg {
     max-width: 1140px;
@@ -48,6 +52,7 @@
 
 .app_container_full,
 .app_container.--detail {
+  background-color: #a7a5a5;
   width: 100%;
   display: block;
   margin-left: auto;

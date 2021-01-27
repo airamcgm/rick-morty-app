@@ -4,6 +4,10 @@ $darkGrey: #424949;
 $purple: #8E44AD ;
 $blue : #2471A3 ;
 $orange : #DC7633 ;
+$aqua :rgba(22, 172, 201, 0.65);
+$black : rgb(36, 40, 47);
+$blackLight : rgb(48, 53, 61);
+$white: #fff;
 
 
 $colors: (
@@ -12,7 +16,11 @@ $colors: (
   "dark_grey" : $darkGrey,
   "purple" : $purple,
   "blue" : $blue,
-  "orange" : $orange
+  "orange" : $orange,
+  "aqua" : $aqua,
+  "black" : $black,
+  "blackLight" : $blackLight,
+  "white": $white,
 );
 
 @each $color, $value in $colors {
